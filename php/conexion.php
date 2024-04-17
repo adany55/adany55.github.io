@@ -10,7 +10,7 @@
 
 
 $con=mysqli_connect('192.168.166.159','usernariz','','narizs') or die("Error en la conexion del servicio");
-$query = "SELECT monitoreo.MQ_9,monitoreo.MQ_135 ,monitoreo.MQ__7,monitoreo.MQ_2,monitoreo.EPOC  FROM monitoreo;";
+$query = "SELECT monitoreo.MQ_9,monitoreo.MQ_135 ,monitoreo.MQ__7,monitoreo.MQ_2,monitoreo.EPOC  FROM monitoreo  WHERE CustomerID <= 10;";
 
 
 if ($stmt = $conection->prepare($query)) {
@@ -40,6 +40,9 @@ if ($stmt = $conection->prepare($query)) {
 mysqli_close($con);
 
 ?>
-    
+ <form method="POST" action="pdf.php">
+            <br>
+            <b>Re - Instroduzca En Folio De trabajador<br><input type="text" name="folio_trabajador"  ></br></b>
+<br><br><center><input type="submit" name="pdf" value="Imprimir comprobante"><center></br></br>
     </body>
 </html>
