@@ -1,9 +1,12 @@
-<!DOCTYPE html> <html> <head>
+<!DOCTYPE html> <html> 
+     <head>
      <title>Document</title> 
     </head> 
      <body>
 <?php $connection = mysqli_connect('192.168.166.159', 'usernariz', '', 'naris') or die("Error en la conexion del servicio");
-$query = "SELECT monitoreo.MQ_9, monitoreo.MQ_135, monitoreo.MQ__7, monitoreo.MQ_2, monitoreo.EPOC FROM monitoreo WHERE id <= 100;";
+$query = "SELECT monitoreo.MQ_9, monitoreo.MQ_135, monitoreo.MQ__7, monitoreo.MQ_2, monitoreo.EPOC FROM monitoreo WHERE id <= '".$_POST["cuantos"]."' ;";
+
+
 if ($stmt = $connection->prepare($query))
 { $stmt->execute(); 
 $stmt->bind_result($MQ_9, $MQ_135, $MQ__7, $MQ_2, $EPOC);
